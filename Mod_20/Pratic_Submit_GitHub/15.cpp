@@ -1,7 +1,12 @@
 /*
-Question # 13:
-    Write a function named delete_node_by_position() that deletes a node from 
-    the singly linked list. If there is only one node left, it will delete the head.
+Question # 15:
+    Write a function named move_tail() which will move the tail to the 
+    first position of the list.
+    For example: If the list looks like this,
+        List: 2 -> 4 -> 1 -> 10 -> 5
+    After the operation the list will look like this,
+        List: 5 -> 2 -> 4 -> 1 -> 10
+
 */
 #include<bits/stdc++.h>
 using namespace std;
@@ -32,22 +37,21 @@ void insertNodeAtTail(Node *&head, int val){
     tmp->Next = newNode;
 }
 
-void deletionAtSpecificPosition(Node *&head, int pos){
+void tailGoHead(Node *&head){
+    /*
+    Case # 1:
+    have to handel segmentation fault 
+    if List element is NULL or less than two
+    */
     Node *tmp = head;
-    if(tmp!=NULL){
-        int i = 1;
-        while(i < pos-1){
+        while(tmp->Next->Next != NULL){
             tmp = tmp->Next;
-            i++;
         }
-        Node *delNode = tmp->Next;
-        tmp->Next = delNode->Next;
-        delete delNode;
-    }
-    else{
-        cout<<"There is no Value in the Linked List";
-    }
-    
+        Node *catchTail = tmp->Next;
+        tmp->Next = NULL;
+        
+        catchTail->Next = head;
+        head = catchTail;
 }
 
 void display(Node *head){
@@ -75,19 +79,16 @@ void printAddress(Node *head){
 
 int main(){
     Node *head = NULL;
-    for(int i=1; i<7; i++){
+    for(int i=1; i<10; i++){
         insertNodeAtTail(head, i);
     }
     cout<<"Before: ";
     display(head);
-
+    printAddress(head);
     
-    int pos;
-    cout<<"Enter the Desired Position: ";
-    cin>>pos;
-    deletionAtSpecificPosition(head, pos);
-    cout<<endl<<"After Delete: ";
+    tailGoHead(head);
+    
+    cout<<endl<<"After : ";
     display(head);
-
-    
+    printAddress(head);
 }
