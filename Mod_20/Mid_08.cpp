@@ -61,19 +61,19 @@ void deletionNodes(Node *head, int pos, int x){
 }
         
 int main(){
-    // if node NULL then total Node will cewate 1+.
+    // The length of Node will 1+, when Node !NULL
     // Have to handel this error.
     // Node *head = NULL;
     Node *head = new Node(0);
 
-    srand((unsigned) time(0));
+    // srand((unsigned) time(0));
     int size, pos, del;
     cin>>size>>pos>>del;
     int arr[size];
     for(int i=1; i<size+1; i++){
         // cin>>arr[i];
-        // int randNum = rand()%10+1;
-        insertAtTail(head, i);
+        int randNum = rand()%10+1;
+        insertAtTail(head, randNum);
     }
     display(head); cout<<endl;
 
