@@ -27,15 +27,12 @@ void createNode(Node *&head, int val){
     newNode->Prev = tmp;
 }
 
-    
-
-
 void display(Node *head){
     Node *tmp = head;
     while(tmp != NULL){
         cout<<tmp->val;
         if(tmp->Next != NULL){
-            cout<<" -> ";
+            cout<<" <--> ";
         }
         tmp = tmp->Next;
     }
@@ -50,13 +47,12 @@ void displayReverse(Node *head){
     while(tmp != NULL){
         cout<<tmp->val;
         if(tmp->Prev != NULL){
-            cout<<" -> ";
+            cout<<" <--> ";
         }
         tmp = tmp->Prev;
     }
     cout<<endl;
 }
-
 
 void displayAddress(Node *head){
     cout<<"Previous Address"<<"\t"<<"Value"<<"\t"<<"Base Address"<<"\t\t"<<"Next Address"<<endl;
@@ -73,10 +69,10 @@ void displayAddress(Node *head){
 int main(){
     Node *head = NULL;
 
-    createNode(head, 14);
-    createNode(head, 25);
-    createNode(head, 33);
-    createNode(head, 47);
+    for(int i=10; i<=90; i+=10){
+        createNode(head, i);
+    }
+    
     cout<<endl<<"Linked List: "<<endl;
     display(head);
 
@@ -85,6 +81,4 @@ int main(){
     
     cout<<endl<<"Reversed Linked List with Addredd: "<<endl;
     displayAddress(head);
-
-   
 }
