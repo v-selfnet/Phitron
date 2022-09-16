@@ -23,7 +23,7 @@ void printTree(Node* root, int level){
         return;
     }
     // Case 1
-    if(root->leftChild ==  NULL && root->rightChild == NULL){
+    if(root->leftChild==NULL && root->rightChild==NULL){
         cout<<root->data<<endl;
         return;
     }
@@ -32,7 +32,6 @@ void printTree(Node* root, int level){
         cout<<endl;
         spacePrint(level);
         cout<<"Root: "<<root->data<<endl;
-
     }
     if(root->leftChild != NULL){
         spacePrint(level);

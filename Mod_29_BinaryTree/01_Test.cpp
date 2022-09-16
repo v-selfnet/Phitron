@@ -5,50 +5,33 @@ using namespace std;
 class Node{
 public:
     int data;
-    Node *leftChild;
-    Node *rightChild;
+    Node *left;
+    Node *right;
     Node(int value){
         data = value;
-        leftChild = NULL; 
-        rightChild = NULL;
+        left = NULL; 
+        right = NULL;
     }
 };
-
-void printTree(Node *root, int level){
-    if(root == NULL){
-        return;
+void printTree(Node *root){
+    if(root != NULL){
+        cout<<long(root->left)<<" "
+        <<root->data<<" "
+        <<long(root->right)<<endl;
+        printTree(root->left);
+        printTree(root->right);
     }
-    if(root->leftChild==NULL && root->rightChild==NULL){
-        cout<<root->data;
-        return;
-    }
-    else{
-        cout<<root->data<<endl;
-    }
-
 }
 
 int main(){
-    int n;
-    cin>>n;
-    Node *nodes[n];
-    for(int i=0; i<n; i++){
-        nodes[i] = new Node(-1);
-    }
+    Node *root = new Node(0);
+        root->left = new Node(1);
+        root->right = new Node(2);
+        root->left->left = new Node(3);
+        root->left->right = new Node(4);
 
-    for(int i=0; i<n; i++){
-        int value, left, right;
-        cin>>value>>left>>right;
-        nodes[i]->data = value;
-        if(left != -1){
-            nodes[i]->leftChild = nodes[left];
-        }
-        if(right != -1){
-            nodes[i]->rightChild = nodes[right];
-        }   
-    }
-    printTree(nodes[0], 0);
-
+        printTree(root);
+    
 }
 
 /*
