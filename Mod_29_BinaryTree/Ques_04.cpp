@@ -56,8 +56,7 @@ int main(){
 
 
 /*
-
-# # # Full Binary Tree:
+# # # Perfect Binary Tree: Symmetric
                     1
                    / \
                   /   \ 
@@ -68,7 +67,18 @@ int main(){
              /   \     /   \
             3     4   4     3
 
-
+# # # Binary Tree: NOT Symmetric
+                    1
+                   / \ 
+                  /   \
+                 /     \
+                2       2
+                 \       \
+                  \       \
+                   3       3
+                    \       \
+                     \       \
+                      4       4
 
 Algoritham: Check Symmetric Tree with Recursion.
 
