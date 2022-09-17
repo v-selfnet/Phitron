@@ -16,10 +16,10 @@ public:
 
 
 // Current Level of Tree
-void currentLevel(Node* root, int level) {
-    if (root==NULL)
+void currentLevel(Node* root, int level){
+    if(root==NULL)
         return;
-    if (level==1)
+    if(level==1)
         cout<<root->data <<" ";
     else if(level>1){
        currentLevel(root->leftChild, level-1);
@@ -57,7 +57,7 @@ void LevelOrder(Node *root){
         }
     }
     int height = leftHeight>rightHeight?leftHeight:rightHeight;
-    for(int i=height; i>=1; i--){
+    for(int i=height; i>0; i--){
         currentLevel(root, i);
     }
 }
@@ -75,7 +75,7 @@ int main(){
     b->leftChild = c;
     b->rightChild = d;
 
-    cout<<endl<<"Levelorder [leaf to root]: ";
+    cout<<"Levelorder [leaf to root]"<<endl;
         LevelOrder(root);
    
 }
